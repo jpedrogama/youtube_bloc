@@ -19,4 +19,17 @@ class Video {
       chanel: json['snippet']['channelTitle'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': {'videoId': id},
+      'snippet': {
+        'title': title,
+        'thumbnails': {
+          'high': {'url': thumbnailUrl},
+        },
+        'channelTitle': chanel,
+      },
+    };
+  }
 }

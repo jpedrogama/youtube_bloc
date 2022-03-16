@@ -24,7 +24,7 @@ class VideosBloc implements BlocBase {
       _videosController.sink.add([]);
       videos = await api?.search(search);
     } else {
-      videos = ((videos ?? []) + (await api?.nextPage() ?? []));
+      videos = ((videos ?? []) + (await api?.nextPage() ?? [])).toSet().toList();
     }
     _videosController.sink.add(videos);
   }

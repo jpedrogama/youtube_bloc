@@ -1,6 +1,7 @@
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:youtube_bloc/blocs/favoritos_bloc.dart';
 import 'package:youtube_bloc/blocs/videos_bloc.dart';
 import 'package:youtube_bloc/ui/home.dart';
 
@@ -18,9 +19,11 @@ class YoutubeBloc extends StatelessWidget {
     return BlocProvider(
       blocs: [
         Bloc((i) => VideosBloc()),
+        Bloc((i) => FavoritosBloc()),
       ],
       dependencies: const [],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Youtube',
         theme: ThemeData(
           primarySwatch: Colors.blue,
